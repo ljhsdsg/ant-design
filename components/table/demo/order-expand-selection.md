@@ -2,31 +2,27 @@
 order: 14.1
 version: 4.18.0
 title:
-  en-US: Order of Expandable and Selection Row
-  zh-CN: 可展开与可勾选混合排序
+  en-US: Order of Expandable and Selection Column Row
+  zh-CN: 混合勾选和展开列排序
 ---
 
 ## zh-CN
 
-当表格内容较多不能一次性完全展示时。
+你可以通过 `Table.EXPAND_COLUMN` 和 `Table.SELECTION_COLUMN` 来控制列的顺序。
 
 ## en-US
 
-When there's too much information to show and the table can't display all at once.
+You can control the order of expandable and selection column by `Table.EXPAND_COLUMN` and `Table.SELECTION_COLUMN`.
 
-```jsx
+```tsx
 import { Table } from 'antd';
 
 const columns = [
   { title: 'Name', dataIndex: 'name', key: 'name' },
+  Table.EXPAND_COLUMN,
   { title: 'Age', dataIndex: 'age', key: 'age' },
+  Table.SELECTION_COLUMN,
   { title: 'Address', dataIndex: 'address', key: 'address' },
-  {
-    title: 'Action',
-    dataIndex: '',
-    key: 'x',
-    render: () => <a>Delete</a>,
-  },
 ];
 
 const data = [
@@ -65,8 +61,8 @@ ReactDOM.render(
     columns={columns}
     expandable={{
       expandedRowRender: record => <p style={{ margin: 0 }}>{record.description}</p>,
-      rowExpandable: record => record.name !== 'Not Expandable',
     }}
+    rowSelection={{}}
     dataSource={data}
   />,
   mountNode,
