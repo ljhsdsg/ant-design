@@ -376,7 +376,6 @@ function InternalTable<RecordType extends object = any>(
     expandType,
     childrenColumnName,
     locale: tableLocale,
-    expandIconColumnIndex: mergedExpandable.expandIconColumnIndex,
     getPopupContainer,
   });
 
