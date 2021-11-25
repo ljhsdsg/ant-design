@@ -29,6 +29,7 @@ import {
 } from './interface';
 import useSelection, {
   SELECTION_ALL,
+  SELECTION_COLUMN,
   SELECTION_INVERT,
   SELECTION_NONE,
 } from './hooks/useSelection';
@@ -524,6 +525,8 @@ type InternalTableType = typeof ForwardTable;
 
 interface TableInterface extends InternalTableType {
   defaultProps?: Partial<TableProps<any>>;
+  EXPAND_COLUMN: typeof RcTable.EXPAND_COLUMN;
+  SELECTION_COLUMN: typeof SELECTION_COLUMN;
   SELECTION_ALL: 'SELECT_ALL';
   SELECTION_INVERT: 'SELECT_INVERT';
   SELECTION_NONE: 'SELECT_NONE';
@@ -538,6 +541,8 @@ Table.defaultProps = {
   rowKey: 'key',
 };
 
+Table.SELECTION_COLUMN = SELECTION_COLUMN;
+Table.EXPAND_COLUMN = RcTable.EXPAND_COLUMN;
 Table.SELECTION_ALL = SELECTION_ALL;
 Table.SELECTION_INVERT = SELECTION_INVERT;
 Table.SELECTION_NONE = SELECTION_NONE;
